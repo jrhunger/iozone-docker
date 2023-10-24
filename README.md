@@ -3,7 +3,7 @@
 * based on [acrelle/iozone](https://github.com/acrelle/iozone-docker) but modified to:
   * run as non-root
   * use multistage build so compilers, etc. are not in the runtime
-  * use latest iozone (currently 3.494)
+  * use latest iozone (currently 3.506)
 
 Available on Dockerhub as 1101010/iozone
 
