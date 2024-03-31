@@ -2,6 +2,7 @@
 * packaging [iozone](https://www.iozone.org/) in an alpine container for easily running in k8s cluster
 * based on [acrelle/iozone](https://github.com/acrelle/iozone-docker) but modified to:
   * run as non-root
+  * workdir=/data (to easily mount a volume)
   * use multistage build so compilers, etc. are not in the runtime
   * use latest iozone (currently 3.506)
 
@@ -16,6 +17,11 @@ docker run -rm 1101010/iozone
 To specify options (options shown are the defaults):
 ```
 docker run -rm 1101010/iozone -e -I -a -s 100M -r 4k -i 0 -i 1 -i 2
+```
+
+To run the tests in a specified directory:
+```
+docker run -rm -v /mnt/testmount/testdir:/data:z 1101010/iozone
 ```
 
 Run on all worker nodes of a kubernetes cluster:
