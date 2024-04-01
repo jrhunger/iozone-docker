@@ -13,14 +13,14 @@ FROM alpine
 LABEL maintainer="1101010@gmail.com" \
     izone_version="3.506"
 
-RUN adduser -S -u 11010 iozone && \
+RUN adduser -S -u 1000 iozone && \
     mkdir /data && \
     chmod 777 /data
 
 COPY --from=build /tmp/iozone3_506/src/current/iozone /usr/bin/iozone
 
 WORKDIR /data
-USER 11010
+USER 1000
 
 ENTRYPOINT ["/usr/bin/iozone"]
 CMD ["-e","-I","-a","-s","100M","-r","4k","-i","0","-i","1","-i","2"]
